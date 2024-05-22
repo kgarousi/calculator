@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="calculator">
-        <div class="display"></div>
+        <div class="display">TEST</div>
         <div class="operations">
             <button class="addBtn">ADD</button>
             <button class="subBtn">SUBTRACT</button>
@@ -17,15 +18,21 @@
             <button class="clearBtn">CLEAR</button>
         </div>
         <div class="numberBtns">
-            <button class="oneBtn">1</button>
-            <button class="twoBtn">2</button>
-            <button class="threeBtn">3</button>
-            <button class="fourBtn">4</button>
-            <button class="fiveBtn">5</button>
-            <button class="sixBtn">6</button>
-            <button class="sevenBtn">7</button>
-            <button class="eightBtn">8</button>
-            <button class="nineBtn">9</button>
+            <div class="one-thru-three">
+                <button class="oneBtn">1</button>
+                <button class="twoBtn">2</button>
+                <button class="threeBtn">3</button>
+            </div>
+            <div class="four-thru-six">
+                <button class="fourBtn">4</button>
+                <button class="fiveBtn">5</button>
+                <button class="sixBtn">6</button>
+            </div>
+            <div class="seven-thru-nine">
+                <button class="sevenBtn">7</button>
+                <button class="eightBtn">8</button>
+                <button class="nineBtn">9</button>
+            </div>        
         </div>
     </div>
 </body>
