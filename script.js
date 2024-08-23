@@ -48,7 +48,7 @@ numButtons.forEach(function(button) {
             displayVal += button.innerHTML
             firstValue = displayVal
         }
-        else{
+        else if(firstValue != null){
             secondValue = ""
             secondValue += button.innerHTML
             displayVal += secondValue
