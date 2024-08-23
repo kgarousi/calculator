@@ -47,14 +47,15 @@ numButtons.forEach(function(button) {
             firstValue = ""
             displayVal += button.innerHTML
             firstValue = displayVal
+            displayValue(displayVal)
         }
         else if(firstValue != null){
             secondValue = ""
             secondValue += button.innerHTML
             displayVal += secondValue
             secondValue = displayVal
+            displayValue(displayVal)
         }
-        displayValue(displayVal)
     })
 })
 
