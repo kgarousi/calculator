@@ -45,22 +45,22 @@ function operate(operator, num1, num2){
 numButtons.forEach(function(button) {
     button.addEventListener("click", function(){
         if(operatorValue == null){
-            firstValue = ""
-            displayVal += button.innerHTML
-            firstValue = displayVal
-            displayValue(displayVal)
+            firstValue = "";
+            displayVal += button.innerHTML;
+            firstValue = displayVal;
+            displayValue(displayVal);
         }
         else if(firstValue != null && secondValue == null){
-            secondValue = ""
-            secondValue += button.innerHTML
-            displayVal += secondValue
-            secondValue = displayVal
-            displayValue(displayVal)
+            secondValue = "";
+            secondValue += button.innerHTML;
+            displayVal += secondValue;
+            secondValue = displayVal;
+            displayValue(displayVal);
         }
         else if(operatorValue != null){
-            secondValue += button.innerHTML
-            displayVal = secondValue
-            displayValue(secondValue)
+            secondValue += button.innerHTML;
+            displayVal = secondValue;
+            displayValue(secondValue);
         }
     })
 })
@@ -68,42 +68,42 @@ numButtons.forEach(function(button) {
 operatorButtons.forEach(function(button) {
     button.addEventListener("click", function(){
         if (operatorValue == null && firstValue != null){
-            displayVal = button.innerHTML
-            operatorDisplay.innerText = displayVal
-            operatorValue = String(displayVal)
-            displayVal = ""
+            displayVal = button.innerHTML;
+            operatorDisplay.innerText = displayVal;
+            operatorValue = String(displayVal);
+            displayVal = "";
         }
         else if(operatorValue != null && firstValue != null & secondValue != null){
-            firstValue = operate(operatorValue, firstValue, secondValue)
-            operatorDisplay.innerText = button.innerHTML
-            displayValue(firstValue)
-            operatorValue = button.innerHTML
-            secondValue = ""
-            displayVal = ""
+            firstValue = operate(operatorValue, firstValue, secondValue);
+            operatorDisplay.innerText = button.innerHTML;
+            displayValue(firstValue);
+            operatorValue = button.innerHTML;
+            secondValue = "";
+            displayVal = "";
         }
     })
 })
  
 
 clearButton.addEventListener("click", function(){
-    displayVal = ""
-    displayValue("----------")
-    operatorValue = null
-    firstValue = null
-    secondValue = null
-    operatorDisplay.innerText = ""
+    displayVal = "";
+    displayValue("----------");
+    operatorValue = null;
+    firstValue = null;
+    secondValue = null;
+    operatorDisplay.innerText = "";
 })
 
 equalButton.addEventListener("click", function(){
-    displayValue(operate(operatorValue, firstValue, secondValue))
+    displayValue(operate(operatorValue, firstValue, secondValue));
 })
 
 function displayValue(displayVal){
-    display.innerText = displayVal
+    display.innerText = displayVal;
 }
 
 equalButton.addEventListener("click", function(){
     firstValue = (operate(operatorValue, firstValue, secondValue))
-    secondValue = ""
-    operatorDisplay.innerHTML = ""
+    secondValue = "";
+    operatorDisplay.innerHTML = "";
 })
