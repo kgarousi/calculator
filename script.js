@@ -3,7 +3,7 @@ let display = document.querySelector('.display')
 const numButtons= document.querySelectorAll('.number')
 const clearButton = document.querySelector('.clear')
 const operatorButtons = document.querySelectorAll('.operator')
-const equalButton = document.querySelector('#equal')
+const equalButton = document.querySelector('.equal')
 let firstValue = null
 let secondValue = null
 let operatorValue = null
@@ -49,12 +49,17 @@ numButtons.forEach(function(button) {
             firstValue = displayVal
             displayValue(displayVal)
         }
-        else if(firstValue != null){
+        else if(firstValue != null && secondValue == null){
             secondValue = ""
             secondValue += button.innerHTML
             displayVal += secondValue
             secondValue = displayVal
             displayValue(displayVal)
+        }
+        else if(operatorValue != null){
+            secondValue += button.innerHTML
+            displayVal = secondValue
+            displayValue(secondValue)
         }
     })
 })
@@ -65,6 +70,13 @@ operatorButtons.forEach(function(button) {
             displayVal = button.innerHTML
             displayValue(displayVal)
             operatorValue = String(displayVal)
+            displayVal = ""
+        }
+        else if(operatorValue != null && firstValue != null & secondValue != null){
+            firstValue = operate(operatorValue, firstValue, secondValue)
+            displayValue(firstValue)
+            operatorValue = button.innerHTML
+            secondValue = ""
             displayVal = ""
         }
     })
@@ -88,5 +100,6 @@ function displayValue(displayVal){
 }
 
 equalButton.addEventListener("click", function(){
-    console.log((operate(operatorValue, firstValue, secondValue)))
+    firstValue = (operate(operatorValue, firstValue, secondValue))
+    secondValue = ""
 })
