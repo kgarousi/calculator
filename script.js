@@ -4,6 +4,7 @@ const numButtons= document.querySelectorAll('.number')
 const clearButton = document.querySelector('.clear')
 const operatorButtons = document.querySelectorAll('.operator')
 const equalButton = document.querySelector('.equal')
+const operatorDisplay = document.querySelector('.operators')
 let firstValue = null
 let secondValue = null
 let operatorValue = null
@@ -68,12 +69,13 @@ operatorButtons.forEach(function(button) {
     button.addEventListener("click", function(){
         if (operatorValue == null && firstValue != null){
             displayVal = button.innerHTML
-            displayValue(displayVal)
+            operatorDisplay.innerText = displayVal
             operatorValue = String(displayVal)
             displayVal = ""
         }
         else if(operatorValue != null && firstValue != null & secondValue != null){
             firstValue = operate(operatorValue, firstValue, secondValue)
+            operatorDisplay.innerText = button.innerHTML
             displayValue(firstValue)
             operatorValue = button.innerHTML
             secondValue = ""
@@ -85,10 +87,11 @@ operatorButtons.forEach(function(button) {
 
 clearButton.addEventListener("click", function(){
     displayVal = ""
-    displayValue(displayVal)
+    displayValue("----------")
     operatorValue = null
     firstValue = null
     secondValue = null
+    operatorDisplay.innerText = ""
 })
 
 equalButton.addEventListener("click", function(){
@@ -102,4 +105,5 @@ function displayValue(displayVal){
 equalButton.addEventListener("click", function(){
     firstValue = (operate(operatorValue, firstValue, secondValue))
     secondValue = ""
+    operatorDisplay.innerHTML = ""
 })

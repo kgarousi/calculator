@@ -2,6 +2,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    background-image: url("https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg");
+}
+h1{
+    font-family: New Amsterdam;
+    color: rgb(10, 167, 10);
 }
 body{
     display: flex;
@@ -13,14 +18,18 @@ body{
     padding: 5em;
 }
 button{
-    background-color: rgb(26, 196, 196);
-    color: aliceblue;
+    border: solid rgb(10, 167, 10);
+    background-color: black;
+    color: white;
     width: 10em;
-    border-radius: 12px;
-    padding: 2px;
+    height: 5em;
+    border-radius: 6px;
+    padding: .5em;
+    box-shadow: 10px 5px 5px black;
+    font-family: Aldrich;
 }
 button:hover{
-    background-color: rgb(14, 90, 90);
+    background-color: rgb(32, 56, 56);
     cursor: pointer;
 }
 .calculator{
@@ -32,19 +41,28 @@ button:hover{
     align-items:center;
     flex-wrap: wrap;
     border-radius: 12px;
-    border: black solid;
+    border: solid rgb(10, 167, 10);
+    background-color: black;
+    color: white;
     max-width: 30em;
     min-width: 20em;
+
 }
 .display{
     border-radius: 6px;
     display: flex;
-    border: solid black;
-    width: 50%;
+    border: solid white;
+    background-color: black;
+    color: white;
+    width: 10em;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-word;
     min-height: 2em;
     text-overflow: clip;
     justify-content: center;
     align-items: center;
+    box-shadow: 10px 5px 5px black;
 }
 .operations{
     display: flex;
@@ -53,6 +71,7 @@ button:hover{
     justify-content: center;
     align-items: center;
     gap: 14px;
+    background-color: black
 }
 .numberBtns{
     display: flex;
@@ -62,23 +81,45 @@ button:hover{
     gap: 14px;
     align-items: center;
     width: 80%;
+    background-color: black
 }
 .one-thru-three{
     display: flex;
     justify-content: space-between;
     width: 100%;
     gap: 14px;
+    background-color: black
 }
 .four-thru-six{
     display: flex;
     justify-content: space-between;
     width: 100%;
     gap: 14px;
-
+    background-color: black
 }
 .seven-thru-nine{
     display: flex;
     justify-content: space-between;
     width: 100%;
     gap: 14px;
+    background-color: black
+}
+.zero{
+    background-color: darkgray;
+}
+.calculations{
+    background-color:black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 80%;
+}
+.operators{
+    width: 3em;
+    border-radius: 6px;
+    border: solid white;
+    background-color: black;
+    color: white;
+    box-shadow: 10px 5px 5px black;
+    text-align: center;
 }
