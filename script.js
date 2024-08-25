@@ -105,5 +105,4 @@ function displayValue(displayVal){
 equalButton.addEventListener("click", function(){
     firstValue = (operate(operatorValue, firstValue, secondValue))
     secondValue = "";
-    operatorDisplay.innerHTML = "";
 })
