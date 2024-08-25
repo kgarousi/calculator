@@ -23,7 +23,12 @@ function multiply(num1, num2){
 }
 
 function divide(num1, num2){
-    return Number(num1) / Number(num2);
+    if(num2 != 0){
+        return Number(num1) / Number(num2);
+    }
+    else{
+        displayValue("Cannot divide by zero")
+    }
 }
 
 function operate(operator, num1, num2){
@@ -57,16 +62,21 @@ numButtons.forEach(function(button) {
             secondValue = displayVal;
             displayValue(displayVal);
         }
-        else if(operatorValue != null){
+        else if(operatorValue != null && firstValue != null){
+            secondValue = "";
             secondValue += button.innerHTML;
-            displayVal = secondValue;
-            displayValue(secondValue);
+            displayVal += secondValue;
+            secondValue = displayVal;
+            displayValue(displayVal);
         }
     })
 })
 
 operatorButtons.forEach(function(button) {
     button.addEventListener("click", function(){
+        numButtons.forEach(function(button){
+            button.disabled = false
+        })
         if (operatorValue == null && firstValue != null){
             displayVal = button.innerHTML;
             operatorDisplay.innerText = displayVal;
@@ -78,6 +88,13 @@ operatorButtons.forEach(function(button) {
             operatorDisplay.innerText = button.innerHTML;
             displayValue(firstValue);
             operatorValue = button.innerHTML;
+            displayVal = "";
+        }
+        else if(operatorValue != null && firstValue != null && secondValue == null){
+            displayVal = button.innerHTML;
+            operatorValue = displayVal;
+            operatorDisplay.innerText = displayVal;
+            displayValue(firstValue);
             secondValue = "";
             displayVal = "";
         }
@@ -92,11 +109,11 @@ clearButton.addEventListener("click", function(){
     firstValue = null;
     secondValue = null;
     operatorDisplay.innerText = "";
+    numButtons.forEach(function(button){
+        button.disabled = false
+    })
 })
 
-equalButton.addEventListener("click", function(){
-    displayValue(operate(operatorValue, firstValue, secondValue));
-})
 
 function displayValue(displayVal){
     display.innerText = displayVal;
@@ -104,5 +121,9 @@ function displayValue(displayVal){
 
 equalButton.addEventListener("click", function(){
     firstValue = (operate(operatorValue, firstValue, secondValue))
-    secondValue = "";
+    displayValue(firstValue)
+    secondValue = null;
+    numButtons.forEach(function(button){
+        button.disabled = true
+    })
 })
