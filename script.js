@@ -23,11 +23,11 @@ function multiply(num1, num2){
 }
 
 function divide(num1, num2){
-    if(num2 != 0){
-        return Number(num1) / Number(num2);
-    }
-    else{
-        displayValue("Cannot divide by zero")
+    Number(num2)
+    if (num2 == 0){
+        displayValue("Cannot divide by zero or undefined")
+    }else{
+        return Number(num1) / Number(num2);    
     }
 }
 
@@ -45,7 +45,7 @@ function operate(operator, num1, num2){
     case "%":
         return divide(num1, num2)
         break;
-    }
+   }
 }
 numButtons.forEach(function(button) {
     button.addEventListener("click", function(){
