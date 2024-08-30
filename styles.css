@@ -131,7 +131,8 @@ button:hover{
         height: 100vh;
     }
     .display{
-        padding: .1rem;
+        padding: .3rem;
+        font-size: .8rem !important;
     }
     .operators{
         padding: .1rem;
